@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Mer 01 Avril 2015 à 11:09
+-- Généré le :  Jeu 02 Avril 2015 à 14:37
 -- Version du serveur :  5.6.15-log
 -- Version de PHP :  5.5.8
 
@@ -131,7 +131,14 @@ INSERT INTO `reltwitusers` (`idUser`, `idTwit`, `dateTwit`, `retwit`, `favori`, 
 (2, 30, '2015-03-20 17:08:35', 1, 0, 1),
 (2, 34, '2015-03-27 11:06:35', 1, 0, 1),
 (1, 58, '2015-03-27 10:37:21', 1, 0, 2),
-(1, 53, '2015-03-27 12:27:58', 1, 0, 2);
+(1, 53, '2015-03-27 12:27:58', 1, 0, 2),
+(1, 59, '2015-04-02 14:15:28', 0, 0, 0),
+(1, 60, '2015-04-02 14:15:33', 0, 0, 0),
+(1, 61, '2015-04-02 14:15:43', 0, 0, 0),
+(1, 62, '2015-04-02 14:15:46', 0, 0, 0),
+(1, 63, '2015-04-02 14:20:40', 0, 0, 0),
+(1, 64, '2015-04-02 14:29:37', 0, 0, 0),
+(1, 65, '2015-04-02 14:31:36', 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -143,7 +150,7 @@ CREATE TABLE IF NOT EXISTS `twit` (
   `idTwit` int(11) NOT NULL AUTO_INCREMENT,
   `messageTwit` varchar(255) NOT NULL,
   PRIMARY KEY (`idTwit`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=59 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=66 ;
 
 --
 -- Contenu de la table `twit`
@@ -154,8 +161,8 @@ INSERT INTO `twit` (`idTwit`, `messageTwit`) VALUES
 (2, 'Bla bla bla'),
 (3, 'Graaouuuuuh'),
 (4, 'Fuck this text'),
-(5, 'Qu''est-ce que j''écris ?'),
-(6, 'La base de donnée'),
+(5, 'Qu''est-ce que j''ecris ?'),
+(6, 'La base de donnee'),
 (7, '42'),
 (8, 'Twit automatique pour remplir la BDD'),
 (9, 'Twit automatique pour remplir la BDD'),
@@ -207,7 +214,14 @@ INSERT INTO `twit` (`idTwit`, `messageTwit`) VALUES
 (55, 'Twit automatique pour remplir la BDD6'),
 (56, 'Twit automatique pour remplir la BDD7'),
 (57, 'Twit automatique pour remplir la BDD8'),
-(58, 'Twit automatique pour remplir la BDD9');
+(58, 'Twit automatique pour remplir la BDD9'),
+(59, 'tata'),
+(60, 'toto'),
+(61, 'tata'),
+(62, 'tata'),
+(63, 'tata'),
+(64, 'tata'),
+(65, 'tata');
 
 -- --------------------------------------------------------
 
