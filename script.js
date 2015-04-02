@@ -66,8 +66,8 @@ $(document).on("click","#titre", function(){
     $.ajax({
         method:"GET",
         url:"index_pdo.php",
-        data:{"action":"tweet"
-            
+        data:{"action":"tweet",
+            "result":
         },
         success:function(r){}
     });
