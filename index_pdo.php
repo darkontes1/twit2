@@ -24,7 +24,7 @@ session_start();
     //bouton prec est appuyé
     if(isset($_POST['prec'])){
         //echo '##';
-        $_SESSION['nb'] -= 5;
+        $_SESSION['nb'] -= 8;
         if($_SESSION['nb'] < 0){
             $_SESSION['nb'] = 0;
         }
@@ -33,7 +33,7 @@ session_start();
     //bouton suiv apppuyé
     elseif(isset($_POST['suiv'])){
         //echo '--';
-        $_SESSION['nb'] += 5;
+        $_SESSION['nb'] += 8;
         //header('location: index_pdo.php');
     }
 
@@ -307,7 +307,7 @@ session_start();
                 //var_dump($tab2);
                 $data = $db->prepare($query);
                 $data->bindValue('nb1',$_SESSION['nb'],PDO::PARAM_INT);
-                $data->bindValue('nb2',5,PDO::PARAM_INT);
+                $data->bindValue('nb2',8,PDO::PARAM_INT);
                 $data->execute();
                 $result = $data->fetchAll(PDO::FETCH_ASSOC);
                 //var_dump($result);
@@ -407,12 +407,14 @@ session_start();
                     <input type="submit" id="prec" name="prec" value="precedent"/>
                 <?php
                 }
-                $tailleX = $tailleMAX-4;
+                $tailleX = $tailleMAX-7;
                 if($_SESSION['nb']<$tailleX){
+                    if($_SESSION['nb']+8!=$tailleMAX){
                 ?>
-                    <br/><br/>
-                    <input type="submit" id="suiv" name="suiv" value="suivant"/>
+                        <br/><br/>
+                        <input type="submit" id="suiv" name="suiv" value="suivant"/>
                 <?php
+                    }
                 }
                 ?>
             </form>
