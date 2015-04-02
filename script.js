@@ -67,10 +67,10 @@ $(document).on("click","#titre", function(e){
     $.ajax({
         method:"GET",
         url:"json.php",
-        data:{"action":"tweet",
+        data:{"action":"tweet"
         },
         success:function(r){
-            $("container").html($(r).find("container").html());
+            //$("container").html($(r).find("container").html());
             console.log(r);
         }
     });
