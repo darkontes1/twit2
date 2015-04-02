@@ -62,14 +62,17 @@ $(document).on("click","#ajout", function(){
     });
 });
 //Quand on va cliquer sur le lien pour afficher tous les tweets
-$(document).on("click","#titre", function(){
+$(document).on("click","#titre", function(e){
+    e.preventDefault();
     $.ajax({
         method:"GET",
-        url:"index_pdo.php",
+        url:"json.php",
         data:{"action":"tweet",
-            "result":
         },
-        success:function(r){}
+        success:function(r){
+            $("container").html($(r).find("container").html());
+            console.log(r);
+        }
     });
 });
 

@@ -1,25 +1,6 @@
 <?php
-//session_start();
-//session_destroy();
-session_start();
-    $meow = 'Meow_kitty_cat';
-    if(empty($_SESSION)){  //Préférer utiliser empty plutôt que isset pour les session car un session_start déclare une fonction directement
-        $_SESSION['nb'] = 0;
-        $_SESSION['connect'] = FALSE;
-        $_SESSION['login'] = $meow;
-        $_SESSION['id'] = -1;
-        $_SESSION['idTwit'] = '';
-    }
-    try{
-    //Syntaxe init PDO => $host;$BDD,$name,$mdp
-        $db = new PDO('mysql:host=localhost;dbname=twitr','root','');
-    } catch(PDOException $ex){
-       echo '<br/>';
-       echo 'echec lors de la connexion a MySQL : ('.$ex->getCode().')';
-       echo $ex->getMessage();
-       exit();
-    }
 
+    include('json.php');
     //var_dump($_SESSION);
     //bouton prec est appuyé
     if(isset($_POST['prec'])){
@@ -234,16 +215,17 @@ session_start();
                 }
                 else{
                     ?>
-                    <form method="post" action="index_pdo.php">
-                        <textarea id="ajouttweet" name="ajouttweet"></textarea>
-                        <input type="submit" id="ajout" name="ajout"/>
-                    </form>
-                    <nav>
-                        <ul>
-                            <li><a class="bouton-action" id="page_ret" href="page_ret.php">Go page de nos retwits</a></li>
-                            <li><a class="bouton-action" id="page_fav" href="page_fav.php">Go page de nos favoris</a></li><br/>
-                        </ul>
-                    </nav>
+            <form method="post" action="index_pdo.php">
+                <textarea id="ajouttweet" name="ajouttweet"></textarea>
+                <input type="submit" id="ajout" name="ajout"/>
+            </form>
+            <nav>
+                <ul>
+                    <li><a class="bouton-action" id="page_ret" href="page_ret.php">Go page de nos retwits</a></li>
+                    <li><a class="bouton-action" id="page_fav" href="page_fav.php">Go page de nos favoris</a></li><br/>
+                </ul>
+            </nav>
+            <div id="div_change">
                 <?php
                 
                 //var_dump($_SESSION);
@@ -399,6 +381,7 @@ session_start();
                     }
                 }
             ?>
+            </div>
         </div>
         <form class="prec-suiv" method="post" action="index_pdo.php">
                 <?php
