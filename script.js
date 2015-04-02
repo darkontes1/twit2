@@ -25,10 +25,9 @@ $(document).on("click", "#deco", function(){
         success : function(r){}
     });
 });
-
+//Quand on va cliquer sur le lien pour retweet
 $(document).on("click","#a_retweet", function(){
     var idTwit = $("#a_retweet").attr("data-value").value;
-    alert(idTwit);
     $.ajax({
         method:"GET",
         url:"index_pdo.php",
@@ -38,7 +37,7 @@ $(document).on("click","#a_retweet", function(){
         success:function(r){}
     });
 });
-
+//Quand on va cliquer sur le lien pour favori
 $(document).on("click","#a_favori", function(){
     var idTwit = $("#a_favori").attr("data-value").value;
     $.ajax({
@@ -50,10 +49,9 @@ $(document).on("click","#a_favori", function(){
         success:function(r){}
     });
 });
-
+//Quand on va cliquer sur le bouton pour ajouter un tweet à la base
 $(document).on("click","#ajout", function(){
     var ajoutval = $("#ajouttweet").val();
-    alert(ajoutval);
     $.ajax({
         method:"POST",
         url:"index_pdo.php",
@@ -63,3 +61,15 @@ $(document).on("click","#ajout", function(){
         success:function(r){}
     });
 });
+//Quand on va cliquer sur le lien pour afficher tous les tweets
+$(document).on("click","#titre", function(){
+    $.ajax({
+        method:"GET",
+        url:"index_pdo.php",
+        data:{"action":"tweet"
+            
+        },
+        success:function(r){}
+    });
+});
+
