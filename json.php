@@ -34,7 +34,8 @@ session_start();
         JOIN users U ON U.idUser = R.idUser
         LEFT OUTER JOIN favori F ON T.idTwit = F.idTwit 
         AND F.idUser = {$_SESSION['id']} 
-        ORDER BY dateTwit DESC;";
+        ORDER BY dateTwit DESC
+        LIMIT :nb1, :nb2;";
     $data = $db->prepare($query);
     $data->bindValue('nb1',$_SESSION['nb'],PDO::PARAM_INT);
     $data->bindValue('nb2',8,PDO::PARAM_INT);

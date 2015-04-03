@@ -79,35 +79,37 @@ $(document).on("click","#titre", function(e){
             }
             else{
                 for(i=0;i<toto[1].length;i++){
+                    var d = new Date(toto[1][i]['dateTwit']);
                     if(toto[2]['login'] == toto[1][i]['loginUser']){
+
                         html += '<article>';
                         html += '<div id="top-article">';
                         /*/!\CREER UNE DATE EN JS FU FOR ME*/
-                        html += '<p><b>'+new date('j-m-y',strtotime(toto[1][$i]['dateTwit']))+'</b>';
-                        html += '<br/>'+new date('j-m-y',strtotime(toto[1][$i]['dateTwit']))+'</p>';
+                        html += '<p><b>'+(d.getDate())+'-'+(d.getMonth()+1)+'-'+(d.getFullYear())+'</b>';
+                        html += '<br/>'+(d.getDate())+'-'+(d.getMonth()+1)+'-'+(d.getFullYear())+'</p>';
                         html += '</div>';
-                        html += '<p>'+toto[1][$i]['messageTwit']+'...<br/>@'+toto[1][$i]['loginUser']+'</p>';
+                        html += '<p>'+toto[1][i]['messageTwit']+'...<br/>@'+toto[1][i]['loginUser']+'</p>';
                         //IMPORTANT !!! syntaxe d'un get à la place de faire un form pour une action
-                        html += '<a class="bouton-action" href="index_pdo.php" id="a_modifier" data-value="'+toto[1][$i]['idTwit']+'"">modifier</a>';
-                        html += '<a class="bouton-action" href="index_pdo.php" id="a_supprimer" data-value="'+toto[1][$i]['idTwit']+'"">supprimer</a>';
+                        html += '<a class="bouton-action" href="index_pdo.php" id="a_modifier" data-value="'+toto[1][i]['idTwit']+'"">modifier</a>';
+                        html += '<a class="bouton-action" href="index_pdo.php" id="a_supprimer" data-value="'+toto[1][i]['idTwit']+'"">supprimer</a>';
                         html += '</article>';
                     }
                     else{
                         html += '<article>';
                         html += '<div id="top-article">';
-                        html += '<p><b>'+new date('j-m-y',strtotime(toto[1][$i]['dateTwit']))+'</b>';
-                        html += '<br/>'+new date('j-m-y',strtotime(toto[1][$i]['dateTwit']))+'</p>';
+                        html += '<p><b>'+(d.getDate())+'-'+(d.getMonth()+1)+'-'+(d.getFullYear())+'</b>';
+                        html += '<br/>'+(d.getDate())+'-'+(d.getMonth()+1)+'-'+(d.getFullYear())+'</p>';
                         html += '</div>';
-                        html += '<p>'+toto[1][$i]['messageTwit']+'...<br/>@'+toto[1][$i]['loginUser']+'</p>';
+                        html += '<p>'+toto[1][i]['messageTwit']+'...<br/>@'+toto[1][i]['loginUser']+'</p>';
                         //IMPORTANT !!! syntaxe d'un get à la place de faire un form pour une action
-                        html += '<a class="bouton-action" href="index_pdo.php id="a_retwit" data-value="'+toto[1][$i]['idTwit']+'">retwit</a>';
+                        html += '<a class="bouton-action" href="index_pdo.php id="a_retwit" data-value="'+toto[1][i]['idTwit']+'">retwit</a>';
                         //Si il est favori
                         
-                        if(toto[1][$i]['fav'] == 1){
-                            html += '<a class="fav-orange" href="index_pdo.php id="a_favori" data-value="'+toto[1][$i]['idTwit']+'">favori</a>';
+                        if(toto[1][i]['fav'] == 1){
+                            html += '<a class="fav-orange" href="index_pdo.php id="a_favori" data-value="'+toto[1][i]['idTwit']+'">favori</a>';
                         }
                         else{
-                            html += '<a class="bouton-action" href="index_pdo.php id="a_favori" data-value="'+toto[1][$i]['idTwit']+'">favori</a>';
+                            html += '<a class="bouton-action" href="index_pdo.php id="a_favori" data-value="'+toto[1][i]['idTwit']+'">favori</a>';
                         }
                         html += '</article>';
                     }                     
