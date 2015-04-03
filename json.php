@@ -28,18 +28,20 @@ session_start();
     $result = $data->fetchAll(PDO::FETCH_ASSOC);
     $toto[] = $result;
 
-    $query = "SELECT T.idTwit, IF(F.idUser, 1, 0) AS fav
+    $query = "SELECT T.idTwit, IF(F.idUser, 1, 0) AS fav, U.nomUser,loginUser,nomUser,SUBSTRING(messageTwit,1,20) AS messageTwit,dateTwit
         FROM twit T 
+        JOIN reltwitusers R ON T.idTwit = R.idTwit
+        JOIN users U ON U.idUser = R.idUser
         LEFT OUTER JOIN favori F ON T.idTwit = F.idTwit 
         AND F.idUser = {$_SESSION['id']} 
-        ;";
+        ORDER BY dateTwit DESC;";
     $data = $db->prepare($query);
     $data->bindValue('nb1',$_SESSION['nb'],PDO::PARAM_INT);
     $data->bindValue('nb2',8,PDO::PARAM_INT);
     $data->execute();
     $result2 = $data->fetchAll(PDO::FETCH_ASSOC);
     $toto[] = $result2;
-    //print_r($toto);
+    print_r($toto);
     
     echo json_encode($toto);
 ?>
