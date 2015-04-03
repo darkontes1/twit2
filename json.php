@@ -41,7 +41,8 @@ session_start();
     $data->execute();
     $result2 = $data->fetchAll(PDO::FETCH_ASSOC);
     $toto[] = $result2;
-    print_r($toto);
-    
+    //print_r($toto);
+    $toto[] = $_SESSION['login'];
     echo json_encode($toto);
+
 ?>

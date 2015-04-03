@@ -75,15 +75,16 @@ $(document).on("click","#titre", function(e){
             //console.log(toto[1][7]['loginUser']);
             if(toto[1].length==0){
                 $_SESSION['nb'] = 0;
-                console.log "PAS DE TWEET DANS LA BASE !";
+                console.log("PAS DE TWEET DANS LA BASE !");
             }
             else{
                 for(i=0;i<toto[1].length;i++){
-                    if($_SESSION['login'] == toto[1][i]['loginUser']){
+                    if(toto[2]['login'] == toto[1][i]['loginUser']){
                         html += '<article>';
                         html += '<div id="top-article">';
-                        html += '<p><b>'+date('j-m-y',strtotime(toto[1][$i]['dateTwit']))+'</b>';
-                        html += '<br/>'+date('j-m-y',strtotime(toto[1][$i]['dateTwit']))+'</p>';
+                        /*/!\CREER UNE DATE EN JS FU FOR ME*/
+                        html += '<p><b>'+new date('j-m-y',strtotime(toto[1][$i]['dateTwit']))+'</b>';
+                        html += '<br/>'+new date('j-m-y',strtotime(toto[1][$i]['dateTwit']))+'</p>';
                         html += '</div>';
                         html += '<p>'+toto[1][$i]['messageTwit']+'...<br/>@'+toto[1][$i]['loginUser']+'</p>';
                         //IMPORTANT !!! syntaxe d'un get à la place de faire un form pour une action
@@ -94,8 +95,8 @@ $(document).on("click","#titre", function(e){
                     else{
                         html += '<article>';
                         html += '<div id="top-article">';
-                        html += '<p><b>'+date('j-m-y',strtotime(toto[1][$i]['dateTwit']))+'</b>';
-                        html += '<br/>'+date('j-m-y',strtotime(toto[1][$i]['dateTwit']))+'</p>';
+                        html += '<p><b>'+new date('j-m-y',strtotime(toto[1][$i]['dateTwit']))+'</b>';
+                        html += '<br/>'+new date('j-m-y',strtotime(toto[1][$i]['dateTwit']))+'</p>';
                         html += '</div>';
                         html += '<p>'+toto[1][$i]['messageTwit']+'...<br/>@'+toto[1][$i]['loginUser']+'</p>';
                         //IMPORTANT !!! syntaxe d'un get à la place de faire un form pour une action
@@ -103,14 +104,15 @@ $(document).on("click","#titre", function(e){
                         //Si il est favori
                         
                         if(toto[1][$i]['fav'] == 1){
-                            html += '<a class="bouton-action" href="index_pdo.php id="a_favori" data-value="'.$result[$i]['idTwit'].'">favori</a>';
+                            html += '<a class="fav-orange" href="index_pdo.php id="a_favori" data-value="'+toto[1][$i]['idTwit']+'">favori</a>';
                         }
                         else{
-                            html += '<a class="bouton-action" href="index_pdo.php id="a_favori" data-value="'.$result[$i]['idTwit'].'">favori</a>';
+                            html += '<a class="bouton-action" href="index_pdo.php id="a_favori" data-value="'+toto[1][$i]['idTwit']+'">favori</a>';
                         }
                         html += '</article>';
                     }                     
                 }
+                $("#div_change").append(html);
             }
             //console.log(eval(r));
         }
