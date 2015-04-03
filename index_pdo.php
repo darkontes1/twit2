@@ -209,7 +209,7 @@ session_start();
         <link rel="stylesheet" type="text/css" href="style.css">
     </head>
     <body>
-        <a href="#" id="titre">TWITR©</a>
+        <a href="" id="titre">TWITR©</a>
         <div id="container">
             <form id="myform" method="post" action="index_pdo.php">
                 <?php
@@ -330,8 +330,8 @@ session_start();
                                 echo '</div>';
                                 echo '<p>'.$result[$i]['messageTwit'].'...<br/>@'.$result[$i]['loginUser'].'</p>';
                                 //IMPORTANT !!! syntaxe d'un get à la place de faire un form pour une action
-                                /*echo '<a class="bouton-action" href="index_pdo.php" id="a_modifier" data-value="'.$result[$i]['idTwit'].'"">modifier</a>';
-                                echo '<a class="bouton-action" href="index_pdo.php" id="a_supprimer" data-value="'.$result[$i]['idTwit'].'"">supprimer</a>';*/
+                                echo '<a class="bouton-action" href="index_pdo.php" id="a_modifier" data-value="'.$result[$i]['idTwit'].'"">modifier</a>';
+                                echo '<a class="bouton-action" href="index_pdo.php" id="a_supprimer" data-value="'.$result[$i]['idTwit'].'"">supprimer</a>';
                                 echo '</article>';
                             }
                             else{
@@ -369,8 +369,8 @@ session_start();
                                 echo '</div>';
                                 echo '<p>'.$result[$i]['messageTwit'].'...<br/>@'.$result[$i]['loginUser'].'</p>';
                                 //IMPORTANT !!! syntaxe d'un get à la place de faire un form pour une action
-                                /*echo '<a class="bouton-action" href="index_pdo.php?action=modifier&idTwit='.$result[$i]['idTwit'].'">modifier</a>';
-                                echo '<a class="bouton-action" href="index_pdo.php?action=supprimer&idTwit='.$result[$i]['idTwit'].'">supprimer</a>';*/
+                                echo '<a class="bouton-action" href="index_pdo.php?action=modifier&idTwit='.$result[$i]['idTwit'].'">modifier</a>';
+                                echo '<a class="bouton-action" href="index_pdo.php?action=supprimer&idTwit='.$result[$i]['idTwit'].'">supprimer</a>';
                                 echo '</article>';
                             }
                             else{

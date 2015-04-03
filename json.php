@@ -29,6 +29,4 @@ session_start();
     $result = $data->fetchAll(PDO::FETCH_ASSOC);
 
     echo json_encode($result);
-
-    
 ?>
