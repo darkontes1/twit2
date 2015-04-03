@@ -86,7 +86,7 @@ $(document).on("click","#titre", function(e){
                         html += '<div id="top-article">';
                         /*/!\CREER UNE DATE EN JS FU FOR ME*/
                         html += '<p><b>'+(d.getDate())+'-'+(d.getMonth()+1)+'-'+(d.getFullYear())+'</b>';
-                        html += '<br/>'+(d.getDate())+'-'+(d.getMonth()+1)+'-'+(d.getFullYear())+'</p>';
+                        html += '<br/>'+(d.getHours())+':'+(d.getMinutes())+':'+(d.getSeconds())+'</p>';
                         html += '</div>';
                         html += '<p>'+toto[1][i]['messageTwit']+'...<br/>@'+toto[1][i]['loginUser']+'</p>';
                         //IMPORTANT !!! syntaxe d'un get à la place de faire un form pour une action
@@ -98,7 +98,7 @@ $(document).on("click","#titre", function(e){
                         html += '<article>';
                         html += '<div id="top-article">';
                         html += '<p><b>'+(d.getDate())+'-'+(d.getMonth()+1)+'-'+(d.getFullYear())+'</b>';
-                        html += '<br/>'+(d.getDate())+'-'+(d.getMonth()+1)+'-'+(d.getFullYear())+'</p>';
+                        html += '<br/>'+(d.getHours())+':'+(d.getMinutes())+':'+(d.getSeconds())+'</p>';
                         html += '</div>';
                         html += '<p>'+toto[1][i]['messageTwit']+'...<br/>@'+toto[1][i]['loginUser']+'</p>';
                         //IMPORTANT !!! syntaxe d'un get à la place de faire un form pour une action
