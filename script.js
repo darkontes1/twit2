@@ -114,7 +114,8 @@ $(document).on("click","#titre", function(e){
                         html += '</article>';
                     }                     
                 }
-                $("#div_change").append(html);
+
+                $("#div_change").replaceWith(html);
             }
             //console.log(eval(r));
         }
