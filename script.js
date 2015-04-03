@@ -80,7 +80,7 @@ $(document).on("click","#titre", function(e){
             else{
                 for(i=0;i<toto[1].length;i++){
                     var d = new Date(toto[1][i]['dateTwit']);
-                    if(toto[2]['login'] == toto[1][i]['loginUser']){
+                    if(toto[2] == toto[1][i]['loginUser']){
 
                         html += '<article>';
                         html += '<div id="top-article">';
