@@ -76,3 +76,21 @@ $(document).on("click","#titre", function(e){
     });
 });
 
+// $(window).load(function(){
+
+//     //e.preventDefault();
+//     $.ajax({
+//         method:"GET",
+//         url:"json.php",
+//         data:{"action":"tweet"
+//         },
+//         success:function(r){
+//             //$("container").html($(r).find("container").html());
+//             console.log(r);
+//         }
+//     });
+    
+
+
+//     //var code="<div id='div_change'>"
+// });
