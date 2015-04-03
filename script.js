@@ -67,11 +67,53 @@ $(document).on("click","#titre", function(e){
     $.ajax({
         method:"GET",
         url:"json.php",
-        data:{"action":"tweet"
-        },
+        data:{"action":"tweet"},
         success:function(r){
             //$("container").html($(r).find("container").html());
-            console.log(r);
+            var html = "";
+            var toto = eval(r);
+            console.log(toto[0][9]['loginUser']);
+            if(toto[1].length==0){
+                $_SESSION['nb'] = 0;
+                echo 'PAS DE TWEET DANS LA BASE !';
+                header('location: index_pdo.php');
+            }
+            else{
+                for(i=0;i<toto[1].length;i++){
+                    if($_SESSION['login']==toto[1][i]['loginUser']){
+                        html += '<article>';
+                        html += '<div id="top-article">';
+                        html += '<p><b>'.date('j-m-y',strtotime($result[$i]['dateTwit'])).'</b>';
+                        html += '<br/>'.date('H:i:s',strtotime($result[$i]['dateTwit'])).'</p>';
+                        html += '</div>';
+                        html += '<p>'.$result[$i]['messageTwit'].'...<br/>@'.$result[$i]['loginUser'].'</p>';
+                        //IMPORTANT !!! syntaxe d'un get à la place de faire un form pour une action
+                        html += '<a class="bouton-action" href="index_pdo.php" id="a_modifier" data-value="'.$result[$i]['idTwit'].'"">modifier</a>';
+                        html += '<a class="bouton-action" href="index_pdo.php" id="a_supprimer" data-value="'.$result[$i]['idTwit'].'"">supprimer</a>';
+                        html += '</article>';
+                    }
+                    else{
+                        html += '<article>';
+                        html += '<div id="top-article">';
+                        html += '<p><b>'.date('j-m-y',strtotime($result[$i]['dateTwit'])).'</b>';
+                        html += '<br/>'.date('H:i:s',strtotime($result[$i]['dateTwit'])).'</p>';
+                        html += '</div>';
+                        html += '<p>'.$result[$i]['messageTwit'].'...<br/>@'.$result[$i]['loginUser'].'</p>';
+                        //IMPORTANT !!! syntaxe d'un get à la place de faire un form pour une action
+                        html += '<a class="bouton-action" href="index_pdo.php id="a_retwit" data-value="'.$result[$i]['idTwit'].'">retwit</a>';
+                        //Si il est favori
+                        
+                        if(count($result2)>0){
+                            html += '<a class="bouton-action" href="index_pdo.php id="a_favori" data-value="'.$result[$i]['idTwit'].'">favori</a>';
+                        }
+                        else{
+                            html += '<a class="bouton-action" href="index_pdo.php id="a_favori" data-value="'.$result[$i]['idTwit'].'">favori</a>';
+                        }
+                        html += '</article>';
+                    }                           
+                }
+            }
+            //console.log(eval(r));
         }
     });
 });
