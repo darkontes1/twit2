@@ -349,7 +349,7 @@ session_start();
                                 $data->execute();
                                 $result2 = $data->fetchAll(PDO::FETCH_ASSOC);
                                 if(count($result2)>0){
-                                    echo '<a class="bouton-action" href="index_pdo.php id="a_favori" data-value="'.$result[$i]['idTwit'].'">favori</a>';
+                                    echo '<a class="fav-orange" href="index_pdo.php id="a_favori" data-value="'.$result[$i]['idTwit'].'">favori</a>';
                                 }
                                 else{
                                     echo '<a class="bouton-action" href="index_pdo.php id="a_favori" data-value="'.$result[$i]['idTwit'].'">favori</a>';
